@@ -1,0 +1,1 @@
+Decision Tree (max_depth=4) CV accuracies:\n[0.87317073 0.87804878 0.82926829 0.81463415 0.85365854]\nmean: 0.8498, std: 0.0246\n\nRandom Forest (200 trees) CV accuracies:\n[1.        1.        1.        0.9804878 1.       ]\nmean: 0.9961, std: 0.0078\n

@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 from sklearn.decomposition import PCA
 
 def plot_decision_boundaries(model, X, y):
@@ -14,11 +15,15 @@ def plot_decision_boundaries(model, X, y):
 
     # Predict on grid
     Z = model.predict(pca.inverse_transform(np.c_[xx.ravel(), yy.ravel()]))
-    Z = Z.reshape(xx.shape)
+
+    # Convert labels to numeric (factorize)
+    Z_numeric, uniques = pd.factorize(Z)
+    Z_numeric = Z_numeric.reshape(xx.shape)
 
     # Plot
-    plt.contourf(xx, yy, Z, alpha=0.3)
-    scatter = plt.scatter(X_reduced[:, 0], X_reduced[:, 1], c=pd.factorize(y)[0], edgecolor="k", cmap="viridis")
+    plt.contourf(xx, yy, Z_numeric, alpha=0.3, cmap="viridis")
+    scatter = plt.scatter(X_reduced[:, 0], X_reduced[:, 1],
+                          c=pd.factorize(y)[0], edgecolor="k", cmap="viridis")
     plt.xlabel("PCA 1")
     plt.ylabel("PCA 2")
     plt.title("KNN Decision Boundaries")

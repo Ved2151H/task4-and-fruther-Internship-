@@ -1,0 +1,17 @@
+# KNN Classifier on Iris Dataset
+
+This project demonstrates a simple K-Nearest Neighbors (KNN) classifier using the Iris dataset.
+
+## Project Structure
+- data_preprocessing.py : Load and normalize dataset
+- knn_model.py          : Train KNN model
+- evaluation.py         : Evaluate with accuracy and confusion matrix
+- visualization.py      : Visualize decision boundaries (PCA reduced)
+- main.py               : Runs the complete workflow
+
+## How to Run
+1. Install dependencies:
+   pip install pandas scikit-learn matplotlib
+
+2. Run the project:
+   python main.py
